@@ -1,3 +1,86 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+}
+section {
+    padding: 0 129px 0 86px;
+}
 p {
     text-decoration: underline;
+}
+img {
+    width: 61px;
+    height: 61px;
+    border-radius: 50%;
+}
+hr {
+    width: 1022px;
+}
+.comments-header {
+    display: flex;
+    flex-wrap: nowrap;
+    height: max-content;
+    align-items: baseline;
+    gap: 50px;
+
+}
+.block-filling,
+.block-nickname,
+.input-sending {
+    display: flex;
+}
+.block-filling {
+    width: 1022px;
+    gap: 30px;
+}
+.block-nickname {
+    width: 688px;
+    justify-content: space-between;
+}
+.input-sending {
+    gap: 30px;
+}
+#text-comment {
+    width: 688px;
+    height: 61px;
+    border: none;
+    border-radius: 5px;
+    background: #FFF;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.20);
+
+}
+.btn-send {
+    border: none;
+    width: 213px;
+    height: 61px;
+    border-radius: 5px;
+    background: #cccbcb;
+    color: #525050;
+    font-family: Inter;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.name {
+    text-decoration: none;
+    color: #122AC0;
+    font-family: Inter;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+.number-characters {
+    text-decoration: none;
+    opacity: 0.4;
+    color: #000;
+    font-family: Inter;
+    font-size: 14px;
+    font-style: italic;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.14px;
 }

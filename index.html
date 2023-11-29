@@ -7,37 +7,40 @@
     <title>Commenting_system</title>
 </head>
 <body>
-    <hr>
-    <div>
-        <div>
-            <p>Комментарии</p>
-        </div>
-        <div>
-            <label for="sorting"></label>
-            <select name="sorting" id="sorting-select">
-                <option value="date">По дате</option>
-                <option value="number_of_ratings">По количеству оценок</option>
-                <option value="activity">По актуальности</option>
-                <option value="number_of_responses">По количеству ответов</option>
-            </select>
-        </div>
-        <div>
-            <p>Избранное</p>
-        </div>
-    </div>
-    <div>
-        <img src="Cat.jpeg" alt="Кот">
-        <div>
+    <section>
+        <hr>
+        <div class="comments-header">
             <div>
-                <p>Пользователь</p>
-                <p>Макс. 1000 символов</p>
+                <p>Комментарии</p>
             </div>
             <div>
-                <input type="text" maxlength="1000" placeholder="Введите текст сообщения...">
-                <button>Отправить</button>
+                <select name="sorting" id="sorting-select">
+                    <option value="date">По дате</option>
+                    <option value="number_of_ratings">По количеству оценок</option>
+                    <option value="activity">По актуальности</option>
+                    <option value="number_of_responses">По количеству ответов</option>
+                </select>
+            </div>
+            <div>
+                <p>Избранное</p>
             </div>
         </div>
-        
-    </div>
+        <div class="block-filling">
+            <img src="Cat.jpeg" alt="Кот">
+            <div>
+                <div class="block-nickname">
+                    <p class="name">Пользователь</p>
+                    <p class="number-characters">Макс. 1000 символов</p>
+                </div>
+                <div class="input-sending">
+                    <input id="text-comment" type="text" maxlength="1000" placeholder="Введите текст сообщения...">
+                    <button class="btn-send">Отправить</button>
+                </div>
+            </div>            
+        </div>
+        <div class="comment">
+
+        </div>
+    </section>
 </body>
 </html>
