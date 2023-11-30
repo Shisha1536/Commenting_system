@@ -154,4 +154,24 @@ option {
 }
 .comment {
     gap: 30px;
+    margin-bottom: 30px;
+}
+.block-comment {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+.response-to-a-comment {
+    width: 916px;
+    display: flex;
+    gap: 30px;
+}
+.text-response-comment {
+    width: 825px;
+    color: #000;
+    font-family: Inter;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
 }
