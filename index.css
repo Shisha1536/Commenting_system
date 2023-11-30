@@ -7,9 +7,6 @@ body {
 section {
     padding: 0 129px 0 86px;
 }
-p {
-    text-decoration: underline;
-}
 img {
     width: 61px;
     height: 61px;
@@ -28,12 +25,16 @@ hr {
 }
 .block-filling,
 .block-nickname,
-.input-sending {
+.input-sending,
+.comment,
+.block-nickname-date,
+.block-comment-btn {
     display: flex;
 }
 .block-filling {
     width: 1022px;
     gap: 30px;
+    margin-bottom: 40px;
 }
 .block-nickname {
     width: 688px;
@@ -83,4 +84,40 @@ hr {
     font-weight: 400;
     line-height: normal;
     letter-spacing: 0.14px;
+}
+#sorting-select {
+    text-decoration: none;
+    border: none;
+    border-bottom: 1px solid;
+    color: #000;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    opacity: 0.4;
+}
+option {
+    text-decoration: none;
+}
+.comments-header_p {
+    border-bottom: 1px solid;
+    color: #000;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    opacity: 0.4;
+}
+.comments-header_p:hover,
+#sorting-select:hover {
+    opacity: 1;
+}
+.text-comment {
+    width: 916px;
+}
+.icon {
+    width: 22px;
+    height: 22px;
 }
