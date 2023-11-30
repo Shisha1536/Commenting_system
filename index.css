@@ -116,8 +116,42 @@ option {
 }
 .text-comment {
     width: 916px;
+    color: #000;
+    font-family: Inter;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
 }
 .icon {
     width: 22px;
     height: 22px;
+}
+.block-nickname-date {
+    gap: 15px;
+    align-items: center;
+}
+.block-comment-btn {
+    gap: 20px;
+}
+.btn-answer,
+.btn-favorites {
+    border: none;
+    display: flex;
+    align-items: center;
+    color: #000;
+    font-family: Inter;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    opacity: 0.4;
+}
+.btn-answer:hover,
+.btn-favorites:hover {
+    opacity: 1;
+    background-color: #FFF;
+}
+.comment {
+    gap: 30px;
 }
