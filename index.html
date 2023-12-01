@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="index.css">
+    <script defer src="index.js"></script>
     <title>Commenting_system</title>
 </head>
 <body>
@@ -11,7 +12,7 @@
         <hr>
         <div class="comments-header">
             <div>
-                <p class="comments-header_p">Комментарии</p>
+                <p id="number-comments" class="comments-header_p">Комментарии</p>
             </div>
             <div>
                 <select name="sorting" id="sorting-select">
@@ -22,7 +23,7 @@
                 </select>
             </div>
             <div>
-                <p class="comments-header_p">Избранное</p>
+                <p id="number-favorites" class="comments-header_p">Избранное</p>
             </div>
         </div>
         <div class="block-filling">
@@ -34,11 +35,12 @@
                 </div>
                 <div class="input-sending">
                     <input id="text-comment" type="text" maxlength="1000" placeholder="Введите текст сообщения...">
-                    <button class="btn-send">Отправить</button>
+                    <button id="btn-send" class="btn-send">Отправить</button>
                 </div>
             </div>            
         </div>
         <div class="block-comment">
+            <!--
             <div class="comment">
                 <img src="Cat.jpeg" alt="Кот">
                 <div>
@@ -69,7 +71,7 @@
                         </div>
                     </div>
                 </div> 
-            </div>
+            </div>-->
         </div>
     </section>
 </body>
