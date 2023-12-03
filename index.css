@@ -122,6 +122,7 @@ option {
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+    word-break: break-all;
 }
 .icon {
     width: 22px;
@@ -146,6 +147,7 @@ option {
     font-weight: 400;
     line-height: normal;
     opacity: 0.4;
+    background-color: #FFF;
 }
 .btn-answer:hover,
 .btn-favorites:hover {
@@ -174,4 +176,14 @@ option {
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+}
+.number-characters,
+.date {
+    color: #000;
+    font-family: Inter;
+    font-size: 14px;
+    font-style: italic;
+    font-weight: 400;
+    line-height: normal;
+    opacity: 0.4;
 }
