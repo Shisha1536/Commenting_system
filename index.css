@@ -26,7 +26,6 @@ hr {
 .block-filling,
 .block-nickname,
 .input-sending,
-.comment,
 .block-nickname-date,
 .block-comment-btn {
     display: flex;
@@ -43,7 +42,8 @@ hr {
 .input-sending {
     gap: 30px;
 }
-#text-comment {
+#text-comment,
+#response-text {
     width: 688px;
     height: 61px;
     border: none;
