@@ -157,6 +157,10 @@ option {
 .comment {
     gap: 30px;
     margin-bottom: 30px;
+    display: flex;
+    width: 1022px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
 }
 .block-comment {
     display: flex;

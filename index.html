@@ -31,10 +31,13 @@
             <div>
                 <div class="block-nickname">
                     <p class="name">Пользователь</p>
-                    <p class="number-characters">Макс. 1000 символов</p>
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <output class="number-characters">0/1000</output>
+                        <p id="number-characters" class="number-characters" style="display: none;">Слишком длинное сообщение</p>
+                    </div>
                 </div>
                 <div class="input-sending">
-                    <input id="text-comment" type="text" maxlength="1000" placeholder="Введите текст сообщения...">
+                    <input id="text-comment" type="text"  placeholder="Введите текст сообщения...">
                     <button id="btn-send" class="btn-send">Отправить</button>
                 </div>
             </div>            
@@ -69,8 +72,8 @@
                             </div>
                         </div>
                     </div> 
-                </div>
             </div>
+        </div>
     </section>
 </body>
 </html>
