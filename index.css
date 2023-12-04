@@ -191,3 +191,8 @@ option {
     line-height: normal;
     opacity: 0.4;
 }
+@media screen and (max-width: 320px) {
+    .comments-header {
+        display: none;
+    }
+}
