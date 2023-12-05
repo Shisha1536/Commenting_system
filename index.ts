@@ -197,7 +197,7 @@ if (window.screen.width <= 320) {
     let comm: NodeListOf<Element> = document.querySelectorAll('.comment');
     comm.forEach((element) => {
         let bnd: HTMLElement = element.querySelector('.block-nickname-date')!;
-        let commImg: HTMLImageElemen = element.querySelector('img')!;
+        let commImg: HTMLImageElement = element.querySelector('img')!;
         element.prepend(bnd);
         element.prepend(commImg);
     });
