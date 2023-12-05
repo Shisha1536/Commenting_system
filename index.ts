@@ -32,7 +32,7 @@ if (localStorage.getItem("Commenting") != undefined) {
     let com: NodeListOf<Element> = doc.querySelectorAll('.comment');
     com.forEach((element) => blockComment.append(element));
     let btnAnswers: NodeListOf<Element> = blockComment.querySelectorAll('#btn-answer');
-    btnAnswers.forEach((element) => element.addEventListener('click', () => {Answer(element)}));
+    btnAnswers.forEach((element) => element.addEventListener('click', () => {Answer(element as HTMLElement)}));
 }
 //Добавление нового комментария
 btnSend.addEventListener('click', () => {
