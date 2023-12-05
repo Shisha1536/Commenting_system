@@ -1,68 +1,107 @@
-let numberСomments = document.getElementsByClassName('number-comments');
-let numberFavorites = document.getElementsByClassName('number-favorites');
-let blockComment : Element|null = document.querySelector('#block-comment');
-const btnSend = document.getElementById('btn-send');
-let btnAnswers = document.querySelectorAll('#btn-answer');
-let btnFavoritesS = document.querySelectorAll('#btn-favorites');
-let textComment;
+let blockComment: HTMLElement  = document.querySelector('#block-comment')!;
+const btnSend: HTMLElement  = document.getElementById('btn-send')!;
+let btnAnswers: NodeListOf<Element> = document.querySelectorAll('#btn-answer');
+const input: HTMLInputElement  = document.querySelector('#text-comment')!;
+const output: HTMLElement = document.querySelector('output')!;
+const p: HTMLElement = document.querySelector('#number-characters')!;
+
+//Счетчик символов и доступ к кнопке отправить.
+input.addEventListener('input', function () {
+    if (input.value.length < 1000) {
+        output.style.color = '#000';
+        output.style.opacity = '0.4';
+        p.style.display = 'none';
+        output.textContent = `${0 + input.value.length}/1000`;
+    } else {
+        output.style.color = 'red';
+        output.style.opacity = '1';
+        output.textContent = `${0 + input.value.length}/1000`;
+        p.style.display = 'block';
+        p.style.color = 'red';
+        p.style.opacity = '1';
+    }
+    output.textContent = `${0 + input.value.length}/1000`;
+    if (input.value.length > 0) {
+        btnSend.style.backgroundColor = '#ABD873';
+    } else {
+        btnSend.style.backgroundColor = '#cccbcb';
+    }
+});
 if (localStorage.getItem("Commenting") != undefined) {
-    let doc: Document = new DOMParser().parseFromString(localStorage.getItem("Commenting"), "text/html");
-    let com = doc.querySelectorAll('.comment');
+    let doc: Document = new DOMParser().parseFromString(localStorage.getItem("Commenting")!, "text/html");
+    let com: NodeListOf<Element> = doc.querySelectorAll('.comment');
     com.forEach((element) => blockComment.append(element));
-    let btnAnswers = blockComment.querySelectorAll('#btn-answer');
+    let btnAnswers: NodeListOf<Element> = blockComment.querySelectorAll('#btn-answer');
     btnAnswers.forEach((element) => element.addEventListener('click', () => {Answer(element)}));
 }
-
 //Добавление нового комментария
 btnSend.addEventListener('click', () => {
-    let stDate = new Date();
-    text = document.querySelector('#text-comment');
-    let comment = document.createElement('div');
-    let cat = document.createElement('img');
-    let mainBox = document.createElement('div');
-    let blockNicknameDate = document.createElement('div');
-    let name = document.createElement('p');
-    let date = document.createElement('p');
-    let textCommentBlock = document.createElement('div');
-    let textComment = document.createElement('p');
-    let blockCommentBtn = document.createElement('div');
-    let btnAnswer = document.createElement('button');
-    let btnFavorites = document.createElement('button');
+    if (input.value.length > 0) {
+        let stDate = new Date();
+        text = document.querySelector('#text-comment');
+        let comment = document.createElement('div');
+        let cat = document.createElement('img');
+        let mainBox = document.createElement('div');
+        let blockNicknameDate = document.createElement('div');
+        let name = document.createElement('p');
+        let date = document.createElement('p');
+        let textCommentBlock = document.createElement('div');
+        let textComment = document.createElement('p');
+        let blockCommentBtn = document.createElement('div');
+        let btnAnswer = document.createElement('button');
+        let btnFavorites = document.createElement('button');
 
-    comment.classList = 'comment';
-    mainBox.classList = 'main-box';
-    blockNicknameDate.classList = 'block-nickname-date'
-    name.classList = 'name';
-    name.textContent = 'Пользователь';
-    date.classList = 'date';
-    date.textContent = `${stDate.getDate()}.${stDate.getMonth()+1}.${stDate.getFullYear()} ${stDate.getHours()}:${stDate.getMinutes()}`;
-    textCommentBlock.classList = 'text-comment-block';
-    textComment.classList = 'text-comment';
-    blockCommentBtn.classList = 'block-comment-btn';
-    btnAnswer.classList = 'btn-answer';
-    btnAnswer.id = 'btn-answer';
-    btnAnswer.textContent = 'Ответить';
-    btnAnswer.addEventListener('click', () => {Answer(btnAnswer)});
-    btnFavorites.classList = 'btn-favorites';
-    btnFavorites.id = 'btn-favorites';
-    btnFavorites.textContent = '❤ В избранном';
-
-    blockCommentBtn.append(btnAnswer);
-    blockCommentBtn.append(btnFavorites);
-    textCommentBlock.append(textComment);
-    textCommentBlock.append(blockCommentBtn);
-    blockNicknameDate.append(name);
-    blockNicknameDate.append(date);
-    mainBox.append(blockNicknameDate);
-    mainBox.append(textCommentBlock);
-    comment.append(cat);
-    comment.append(mainBox);
-    blockComment.append(comment);
-    cat.src = `https://loremflickr.com/320/240?random=${Math.ceil(Math.random() * 10)}`;
-    textComment.textContent = text.value;
-    btnAnswers = document.querySelectorAll('#btn-answer');
-    btnFavoritesS = document.querySelectorAll('#btn-favorites');
-    inner();
+        comment.classList = 'comment';
+        mainBox.classList = 'main-box';
+        blockNicknameDate.classList = 'block-nickname-date'
+        name.classList = 'name';
+        name.textContent = 'Пользователь';
+        date.classList = 'date';
+        date.textContent = `${stDate.getDate()}.${stDate.getMonth()+1}.${stDate.getFullYear()} ${stDate.getHours()}:${stDate.getMinutes()}`;
+        textCommentBlock.classList = 'text-comment-block';
+        textComment.classList = 'text-comment';
+        blockCommentBtn.classList = 'block-comment-btn';
+        btnAnswer.classList = 'btn-answer';
+        btnAnswer.id = 'btn-answer';
+        btnAnswer.textContent = 'Ответить';
+        btnAnswer.addEventListener('click', () => {Answer(btnAnswer)});
+        btnFavorites.classList = 'btn-favorites';
+        btnFavorites.id = 'btn-favorites';
+        btnFavorites.textContent = '❤ В избранном';
+        
+        if (window.screen.width <= 320) {
+            blockCommentBtn.append(btnAnswer);
+            blockCommentBtn.append(btnFavorites);
+            textCommentBlock.append(textComment);
+            textCommentBlock.append(blockCommentBtn);
+            blockNicknameDate.append(name);
+            blockNicknameDate.append(date);
+            mainBox.append(textCommentBlock);
+            comment.append(cat);
+            comment.append(blockNicknameDate);
+            comment.append(mainBox);
+            blockComment.append(comment);
+        } else {
+            blockCommentBtn.append(btnAnswer);
+            blockCommentBtn.append(btnFavorites);
+            textCommentBlock.append(textComment);
+            textCommentBlock.append(blockCommentBtn);
+            blockNicknameDate.append(name);
+            blockNicknameDate.append(date);
+            mainBox.append(blockNicknameDate);
+            mainBox.append(textCommentBlock);
+            comment.append(cat);
+            comment.append(mainBox);
+            blockComment.append(comment);
+        }
+        textComment.textContent = text.value;
+        text.value = '';
+        btnSend.style.backgroundColor = '#cccbcb';
+        output.textContent = `${0 + input.value.length}/1000`;
+        btnAnswers = document.querySelectorAll('#btn-answer');
+        cat.src = `https://loremflickr.com/320/240?random=${Math.ceil(Math.random() * 10)}`;
+        inner();
+    }
 });
 // Для добавленых элементов после загрузки 
 function Answer(btnAnswer) {
@@ -88,14 +127,9 @@ function Answer(btnAnswer) {
     btnSendResponse.addEventListener('click', () => {SendResponse(btnSendResponse, parent)});
     inner();
 }
-//Оброботчик для созданных элементов при загрузки
-for (let btn of btnAnswers){
-    btn.addEventListener('click', () =>{
-        Answer(btn);
-    });
-};
 //Добавление ответа на комментарий
 function SendResponse(btnSendResponse, par) {
+    
     let stDate = new Date();
     let parent = btnSendResponse.parentElement;
     let textCommentBlockParent = parent.parentElement;
@@ -144,8 +178,28 @@ function SendResponse(btnSendResponse, par) {
     textResponseComment.textContent = text.value;
     img.src = `https://loremflickr.com/320/240?random=${Math.ceil(Math.random() * 10)}`;
     inner();
+    
 }
 function inner() {
     let blockComment = document.querySelector('#block-comment');
     localStorage.setItem('Commenting', blockComment.innerHTML);
+}
+//Изменение размера
+if (window.screen.width <= 320) {
+    let n = document.querySelector('.name');
+    let imgP = document.createElement('div');
+    let imgOs = document.querySelector('img');
+    imgP.append(imgOs);
+    imgP.append(n);
+    let div = document.querySelector('.block-filling');
+    div.prepend(imgP);
+    imgP.style.display = 'flex';
+    imgP.style.gap = '20px';
+    let comm = document.querySelectorAll('.comment');
+    comm.forEach((element) => {
+        let bnd = element.querySelector('.block-nickname-date');
+        let commImg = element.querySelector('img');
+        element.prepend(bnd);
+        element.prepend(commImg);
+    });
 }

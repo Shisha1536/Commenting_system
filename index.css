@@ -224,7 +224,8 @@ option {
         width: 300px;
         margin-bottom: 30px;
     }
-    #text-comment {
+    #text-comment,
+    #response-text {
         width: 300px;
         height: 50px;
     }
@@ -249,5 +250,11 @@ option {
     .comment {
         width: 300px;
         justify-content: flex-start;
+    }
+    .text-comment {
+        width: 300px;
+    }
+    .main-box {
+        margin-top: -20px;
     }
 }

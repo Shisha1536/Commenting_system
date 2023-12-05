@@ -1,8 +1,9 @@
-let numberСomments = document.getElementsByClassName('number-comments');
 let blockComment = document.querySelector('#block-comment');
 const btnSend = document.getElementById('btn-send');
 let btnAnswers = document.querySelectorAll('#btn-answer');
 const input = document.querySelector('#text-comment')
+let responseText;
+let btnSendResponse;
 const output = document.querySelector('output')
 const p = document.querySelector('#number-characters')
 let textComment;
@@ -70,21 +71,37 @@ btnSend.addEventListener('click', () => {
         btnFavorites.id = 'btn-favorites';
         btnFavorites.textContent = '❤ В избранном';
 
-        blockCommentBtn.append(btnAnswer);
-        blockCommentBtn.append(btnFavorites);
-        textCommentBlock.append(textComment);
-        textCommentBlock.append(blockCommentBtn);
-        blockNicknameDate.append(name);
-        blockNicknameDate.append(date);
-        mainBox.append(blockNicknameDate);
-        mainBox.append(textCommentBlock);
-        comment.append(cat);
-        comment.append(mainBox);
-        blockComment.append(comment);
-        cat.src = `https://loremflickr.com/320/240?random=${Math.ceil(Math.random() * 10)}`;
+        if (window.screen.width <= 320) {
+            blockCommentBtn.append(btnAnswer);
+            blockCommentBtn.append(btnFavorites);
+            textCommentBlock.append(textComment);
+            textCommentBlock.append(blockCommentBtn);
+            blockNicknameDate.append(name);
+            blockNicknameDate.append(date);
+            mainBox.append(textCommentBlock);
+            comment.append(cat);
+            comment.append(blockNicknameDate);
+            comment.append(mainBox);
+            blockComment.append(comment);
+        } else {
+            blockCommentBtn.append(btnAnswer);
+            blockCommentBtn.append(btnFavorites);
+            textCommentBlock.append(textComment);
+            textCommentBlock.append(blockCommentBtn);
+            blockNicknameDate.append(name);
+            blockNicknameDate.append(date);
+            mainBox.append(blockNicknameDate);
+            mainBox.append(textCommentBlock);
+            comment.append(cat);
+            comment.append(mainBox);
+            blockComment.append(comment);
+        }
         textComment.textContent = text.value;
+        text.value = '';
+        btnSend.style.backgroundColor = '#cccbcb';
+        output.textContent = `${0 + input.value.length}/1000`;
         btnAnswers = document.querySelectorAll('#btn-answer');
-        btnFavoritesS = document.querySelectorAll('#btn-favorites');
+        cat.src = `https://loremflickr.com/320/240?random=${Math.ceil(Math.random() * 10)}`;
         inner();
     }
 });
@@ -114,6 +131,7 @@ function Answer(btnAnswer) {
 }
 //Добавление ответа на комментарий
 function SendResponse(btnSendResponse, par) {
+    
     let stDate = new Date();
     let parent = btnSendResponse.parentElement;
     let textCommentBlockParent = parent.parentElement;
@@ -162,6 +180,7 @@ function SendResponse(btnSendResponse, par) {
     textResponseComment.textContent = text.value;
     img.src = `https://loremflickr.com/320/240?random=${Math.ceil(Math.random() * 10)}`;
     inner();
+    
 }
 function inner() {
     let blockComment = document.querySelector('#block-comment');
@@ -185,4 +204,4 @@ if (window.screen.width <= 320) {
         element.prepend(bnd);
         element.prepend(commImg);
     });
-  }
+}
