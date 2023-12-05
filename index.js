@@ -6,6 +6,7 @@ const input = document.querySelector('#text-comment')
 const output = document.querySelector('output')
 const p = document.querySelector('#number-characters')
 let textComment;
+//Счетчик символов и доступ к кнопке отправить.
 input.addEventListener('input', function () {
     if (input.value.length < 1000) {
         output.style.color = '#000';
@@ -166,3 +167,22 @@ function inner() {
     let blockComment = document.querySelector('#block-comment');
     localStorage.setItem('Commenting', blockComment.innerHTML);
 }
+//Изменение размера
+if (window.screen.width <= 320) {
+    let n = document.querySelector('.name');
+    let imgP = document.createElement('div');
+    let imgOs = document.querySelector('img');
+    imgP.append(imgOs);
+    imgP.append(n);
+    let div = document.querySelector('.block-filling');
+    div.prepend(imgP);
+    imgP.style.display = 'flex';
+    imgP.style.gap = '20px';
+    let comm = document.querySelectorAll('.comment');
+    comm.forEach((element) => {
+        let bnd = element.querySelector('.block-nickname-date');
+        let commImg = element.querySelector('img');
+        element.prepend(bnd);
+        element.prepend(commImg);
+    });
+  }
