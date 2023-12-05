@@ -37,35 +37,34 @@ if (localStorage.getItem("Commenting") != undefined) {
 //Добавление нового комментария
 btnSend.addEventListener('click', () => {
     if (input.value.length > 0) {
-        let stDate = new Date();
-        text = document.querySelector('#text-comment');
-        let comment = document.createElement('div');
-        let cat = document.createElement('img');
-        let mainBox = document.createElement('div');
-        let blockNicknameDate = document.createElement('div');
-        let name = document.createElement('p');
-        let date = document.createElement('p');
-        let textCommentBlock = document.createElement('div');
-        let textComment = document.createElement('p');
-        let blockCommentBtn = document.createElement('div');
-        let btnAnswer = document.createElement('button');
-        let btnFavorites = document.createElement('button');
+        let stDate: Date = new Date();
+        let comment: HTMLElement = document.createElement('div');
+        let cat: HTMLImageElement = document.createElement('img');
+        let mainBox: HTMLElement = document.createElement('div');
+        let blockNicknameDate: HTMLElement = document.createElement('div');
+        let name: HTMLElement = document.createElement('p');
+        let date: HTMLElement = document.createElement('p');
+        let textCommentBlock: HTMLElement = document.createElement('div');
+        let textComment: HTMLElement = document.createElement('p');
+        let blockCommentBtn: HTMLElement = document.createElement('div');
+        let btnAnswer: HTMLElement = document.createElement('button');
+        let btnFavorites: HTMLElement = document.createElement('button');
 
-        comment.classList = 'comment';
-        mainBox.classList = 'main-box';
-        blockNicknameDate.classList = 'block-nickname-date'
-        name.classList = 'name';
+        comment.classList.add('comment');
+        mainBox.classList.add('main-box');
+        blockNicknameDate.classList.add('block-nickname-date');
+        name.classList.add('name');
         name.textContent = 'Пользователь';
-        date.classList = 'date';
+        date.classList.add('date');
         date.textContent = `${stDate.getDate()}.${stDate.getMonth()+1}.${stDate.getFullYear()} ${stDate.getHours()}:${stDate.getMinutes()}`;
-        textCommentBlock.classList = 'text-comment-block';
-        textComment.classList = 'text-comment';
-        blockCommentBtn.classList = 'block-comment-btn';
-        btnAnswer.classList = 'btn-answer';
+        textCommentBlock.classList.add('text-comment-block');
+        textComment.classList.add('text-comment');
+        blockCommentBtn.classList.add('block-comment-btn');
+        btnAnswer.classList.add('btn-answer');
         btnAnswer.id = 'btn-answer';
         btnAnswer.textContent = 'Ответить';
         btnAnswer.addEventListener('click', () => {Answer(btnAnswer)});
-        btnFavorites.classList = 'btn-favorites';
+        btnFavorites.classList.add('btn-favorites');
         btnFavorites.id = 'btn-favorites';
         btnFavorites.textContent = '❤ В избранном';
         
@@ -94,8 +93,8 @@ btnSend.addEventListener('click', () => {
             comment.append(mainBox);
             blockComment.append(comment);
         }
-        textComment.textContent = text.value;
-        text.value = '';
+        textComment.textContent = input.value;
+        input.value = '';
         btnSend.style.backgroundColor = '#cccbcb';
         output.textContent = `${0 + input.value.length}/1000`;
         btnAnswers = document.querySelectorAll('#btn-answer');
@@ -104,20 +103,20 @@ btnSend.addEventListener('click', () => {
     }
 });
 // Для добавленых элементов после загрузки 
-function Answer(btnAnswer) {
-    let parent = btnAnswer.parentElement;
-    let parentAdd = parent.parentElement;
+function Answer(btnAnswer: HTMLElement) {
+    let parent: HTMLElement = btnAnswer.parentElement!;
+    let parentAdd: HTMLElement = parent.parentElement!;
 
-    let responseСomment = document.createElement('div');
-    let responseText = document.createElement('input');
-    let btnSendResponse = document.createElement('button');
+    let responseСomment: HTMLElement = document.createElement('div');
+    let responseText: HTMLInputElement = document.createElement('input');
+    let btnSendResponse: HTMLElement = document.createElement('button');
 
-    responseСomment.classList = 'input-sending';
+    responseСomment.classList.add('input-sending');
     responseText.id = 'response-text';
     responseText.type = 'text';
-    responseText.maxLength = '1000';
+    responseText.maxLength = 1000;
     responseText.placeholder = 'Введите текст сообщения...';
-    btnSendResponse.classList = 'btn-send';
+    btnSendResponse.classList.add('btn-send');
     btnSendResponse.id = 'btn-send-response';
     btnSendResponse.textContent = 'Ответить';
     parent.style.display = 'none';
@@ -128,39 +127,39 @@ function Answer(btnAnswer) {
     inner();
 }
 //Добавление ответа на комментарий
-function SendResponse(btnSendResponse, par) {
+function SendResponse(btnSendResponse: HTMLElement, par: HTMLElement) {
     
-    let stDate = new Date();
-    let parent = btnSendResponse.parentElement;
-    let textCommentBlockParent = parent.parentElement;
-    let mainBoxParent = textCommentBlockParent.parentElement;
-    let commentParent = mainBoxParent.parentElement;
-    text = parent.querySelector('#response-text');
+    let stDate: Date = new Date();
+    let parent: HTMLElement = btnSendResponse.parentElement!;
+    let textCommentBlockParent: HTMLElement = parent.parentElement!;
+    let mainBoxParent: HTMLElement = textCommentBlockParent.parentElement!;
+    let commentParent: HTMLElement = mainBoxParent.parentElement!;
+    let text: HTMLInputElement = parent.querySelector('#response-text')!;
     
-    let responseToAComment = document.createElement('div');
-    let img = document.createElement('img');
-    let mainBox = document.createElement('div');
-    let blockNicknameDate = document.createElement('div');
-    let name = document.createElement('p');
-    let data = document.createElement('p');
-    let textCommentBlock = document.createElement('div');
-    let textResponseComment = document.createElement('p');
-    let blockCommentBtn = document.createElement('div');
-    let btnFavorites = document.createElement('button');
+    let responseToAComment: HTMLElement = document.createElement('div');
+    let img: HTMLImageElement = document.createElement('img');
+    let mainBox: HTMLElement = document.createElement('div');
+    let blockNicknameDate: HTMLElement = document.createElement('div');
+    let name: HTMLElement = document.createElement('p');
+    let data: HTMLElement = document.createElement('p');
+    let textCommentBlock: HTMLElement = document.createElement('div');
+    let textResponseComment: HTMLElement = document.createElement('p');
+    let blockCommentBtn: HTMLElement = document.createElement('div');
+    let btnFavorites: HTMLElement = document.createElement('button');
 
-    btnFavorites.classList = 'btn-favorites';
+    btnFavorites.classList.add('btn-favorites');
     btnFavorites.id = 'btn-favorites';
     btnFavorites.textContent = '❤ В избранном';
-    blockCommentBtn.classList = 'block-comment-btn';
-    textResponseComment.classList = 'text-response-comment';
-    textCommentBlock.classList = 'text-comment-block';
-    data.classList = 'data';
+    blockCommentBtn.classList.add('block-comment-btn');
+    textResponseComment.classList.add('text-response-comment');
+    textCommentBlock.classList.add('text-comment-block');
+    data.classList.add('data');
     data.textContent = `${stDate.getDate()}.${stDate.getMonth()+1}.${stDate.getFullYear()} ${stDate.getHours()}:${stDate.getMinutes()}`;
-    name.classList = 'name';
+    name.classList.add('name');
     name.textContent = 'Пользователь';
-    blockNicknameDate.classList = 'block-nickname-date';
-    mainBox.classList = 'main-box';
-    responseToAComment.classList = 'response-to-a-comment';
+    blockNicknameDate.classList.add('block-nickname-date');
+    mainBox.classList.add('main-box');
+    responseToAComment.classList.add('response-to-a-comment');
 
     parent.remove();
     par.style.display = 'flex';
@@ -181,24 +180,24 @@ function SendResponse(btnSendResponse, par) {
     
 }
 function inner() {
-    let blockComment = document.querySelector('#block-comment');
+    let blockComment: HTMLElement = document.querySelector('#block-comment')!;
     localStorage.setItem('Commenting', blockComment.innerHTML);
 }
 //Изменение размера
 if (window.screen.width <= 320) {
-    let n = document.querySelector('.name');
-    let imgP = document.createElement('div');
-    let imgOs = document.querySelector('img');
+    let n: HTMLElement = document.querySelector('.name')!;
+    let imgP: HTMLElement = document.createElement('div');
+    let imgOs: HTMLImageElement = document.querySelector('img')!;
     imgP.append(imgOs);
     imgP.append(n);
-    let div = document.querySelector('.block-filling');
+    let div: HTMLElement = document.querySelector('.block-filling')!;
     div.prepend(imgP);
     imgP.style.display = 'flex';
     imgP.style.gap = '20px';
-    let comm = document.querySelectorAll('.comment');
+    let comm: NodeListOf<Element> = document.querySelectorAll('.comment');
     comm.forEach((element) => {
-        let bnd = element.querySelector('.block-nickname-date');
-        let commImg = element.querySelector('img');
+        let bnd: HTMLElement = element.querySelector('.block-nickname-date')!;
+        let commImg: HTMLImageElemen = element.querySelector('img')!;
         element.prepend(bnd);
         element.prepend(commImg);
     });
